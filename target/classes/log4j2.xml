@@ -1,0 +1,28 @@
+
+
+<Configuration status="WARN">
+    <Appenders>
+        <RollingFile name="LogToRollingFile" fileName="test-info.log" filePattern="app-info-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+    
+    <Logger name="com.amazon.utils" level="debug" additivity="false">
+    <AppenderRef ref="LogToConsole"/>
+</Logger>
+    
+        <Logger name="com.amazon.utils" level="debug" additivity="false">
+            <AppenderRef ref="LogToRollingFile"/>
+        </Logger>
+        <Root level="error">
+            <AppenderRef ref="LogToRollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

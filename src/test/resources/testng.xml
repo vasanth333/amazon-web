@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Amazon web page Automation" parallel="none"
+	thread-count="3">
+	<listeners>
+		<listener
+			class-name="com.amazon.testListeners.ListenersImplementation" />
+		<listener
+			class-name="com.amazon.testListeners.TestRetryAnalyzerListener" />
+	</listeners>
+	
+	
+	<test name="Search a product and verify about this items">
+	</test> <!-- Test -->
+		<test name="Product Details TestCase">
+		<classes>
+		<class name="com.amazon.Tests.ProductDetailsTestCase" /> 
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
